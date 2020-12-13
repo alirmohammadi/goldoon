@@ -47,8 +47,8 @@ class Planet extends Resource
             ID::make(__('ID'), 'id')->sortable(),
 	        Text::make("نام","name")->rules(["required"]),
 			BelongsTo::make("دسته بندی","Category","App\Nova\Category"),
-	        Text::make("مقدار آب","water")->rules(["required"]),
-	        Text::make("دوره آبیاری","period")->rules(["integer","required"]),
+	        Text::make("دوره تعویض خاک","soil_period")->rules(["required","integer"]),
+	        Text::make("دوره آبیاری","water_period")->rules(["integer","required"]),
 	        Images::make("عکس", 'main') // second parameter is the media collection name
 	        ->conversionOnIndexView('thumb') // conversion used to display the image
 	        ->rules('nullable', "max:3"),
