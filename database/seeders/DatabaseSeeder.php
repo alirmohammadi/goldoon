@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         	"email"=>"admin@goldoon.ir",
 	        "password"=>Hash::make("123456"),
 	        "name"=>"admin",
+	        "is_admin"=>true,
         ]);
     }
 }

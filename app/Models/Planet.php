@@ -13,9 +13,9 @@ class Planet extends Model implements HasMedia
     use HasFactory;
 	use InteractsWithMedia;
 
-	public function Category(  )
+	public function SubCategory(  )
 	{
-		return $this->belongsTo(Category::class);
+		return $this->belongsTo(SubCategory::class);
     }
 	public function registerMediaCollections(): void
 	{

@@ -12,10 +12,15 @@ class Category extends Model implements HasMedia
 {
     use HasFactory;
 	use InteractsWithMedia;
-	public function Planet(  )
+	public function SubCategory(  )
 	{
-		return $this->hasMany(Planet::class);
+		return $this->hasMany(SubCategory::class);
     }
+
+	public function Planets(  )
+	{
+		return $this->hasManyThrough(Planet::class,SubCategory::class);
+	}
 	public function registerMediaCollections(): void
 	{
 

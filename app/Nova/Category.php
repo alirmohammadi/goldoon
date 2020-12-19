@@ -23,7 +23,7 @@ class Category extends Resource
      *
      * @var string
      */
-    public static $title = 'name';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -49,7 +49,8 @@ class Category extends Resource
 	        Images::make("عکس", 'main') // second parameter is the media collection name
 	        ->conversionOnIndexView('thumb') // conversion used to display the image
 	        ->rules('nullable', "max:1"),
-	        HasMany::make("گیاهان", "Planet","App\Nova\Planet")
+	        HasMany::make("زیر دسته ها","SubCategory",SubCategory::class),
+	        HasMany::make("گیاهان", "Planets","App\Nova\Planet")
         ];
     }
 
