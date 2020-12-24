@@ -28,4 +28,37 @@ class Planet extends Model implements HasMedia
 			->width(300)
 			->height(300);
 	}
+
+	public function Water(  )
+	{
+		return $this->hasOne(Water::class);
+	}
+	public function Temperature(  )
+	{
+		return $this->hasOne(Temperature::class);
+	}
+	public function Light(  )
+	{
+		return $this->hasOne(Light::class);
+	}
+	public function Humidity(  )
+	{
+		return $this->hasOne(Humidity::class);
+	}
+	public function Poison(  )
+	{
+		return $this->hasOne(Poison::class);
+	}
+	public function Cleaning(  )
+	{
+		return $this->hasOne(Cleaning::class);
+	}
+	public function CareSituation(  )
+	{
+		return $this->hasOne(CareSituation::class);
+	}
+	public function Soil(  )
+	{
+		return $this->hasOne(Soil::class);
+	}
 }

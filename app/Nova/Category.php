@@ -35,6 +35,9 @@ class Category extends Resource
 	    'name'
     ];
 
+	public static function label() {
+		return 'دسته بندی';
+	}
     /**
      * Get the fields displayed by the resource.
      *

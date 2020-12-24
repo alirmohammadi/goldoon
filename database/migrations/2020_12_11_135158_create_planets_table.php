@@ -16,6 +16,17 @@ class CreatePlanetsTable extends Migration
         Schema::create('planets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string("latin_name");
+            $table->foreignId("care_situation_id");
+            $table->foreignId("water_id");
+            $table->foreignId("light_id");
+            $table->foreignId("temperature_id");
+            $table->foreignId("humidity_id");
+            $table->foreignId("cleaning_id");
+            $table->foreignId("poison_id");
+            $table->foreignId("life_id");
+            $table->foreignId("soil_id");
+            $table->string("size");
             $table->foreignId("sub_category_id")->constrained();
             $table->integer("soil_period");
             $table->integer("water_period");

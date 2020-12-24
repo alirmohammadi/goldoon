@@ -36,6 +36,9 @@ class SubCategory extends Resource
 		'name',
 	];
 
+	public static function label() {
+		return 'زیردسته';
+	}
 	/**
 	 * Get the fields displayed by the resource.
 	 *

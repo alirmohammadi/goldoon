@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PlanetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post( 'register', [ AuthController::class, "Register" ] );
+Route::post( 'login', [ AuthController::class, "Login" ] );
+Route::get( "categories", [ PlanetController::class, "Categories" ] );
+Route::get( "subcategories", [ PlanetController::class, "SubCategories" ] );
+Route::get( "planets", [ PlanetController::class, "planets" ] );
+Route::get( "search", [ PlanetController::class, "search" ] );

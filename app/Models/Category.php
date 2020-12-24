@@ -12,6 +12,8 @@ class Category extends Model implements HasMedia
 {
     use HasFactory;
 	use InteractsWithMedia;
+
+
 	public function SubCategory(  )
 	{
 		return $this->hasMany(SubCategory::class);
@@ -32,4 +34,5 @@ class Category extends Model implements HasMedia
 			->width(300)
 			->height(300);
 	}
+
 }

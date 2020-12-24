@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateWaterPlanetLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('water_planet_logs', function (Blueprint $table) {
             $table->id();
-            $table->string('phone')->unique();
-            $table->string('email')->nullable()->unique();
-            $table->string('password');
-            $table->boolean("is_admin")->default(false);
-            $table->rememberToken();
+	        $table->foreignId("user_id")->constrained();
+	        $table->foreignId("plant_id")->constrained();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('water_planet_logs');
     }
 }

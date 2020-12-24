@@ -24,9 +24,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'phone',
+	    'email',
         'password',
+	    'remember_token',
     ];
 
     /**
@@ -58,4 +59,9 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+	public function Planet(  )
+	{
+		return $this->hasManyThrough(Planet::class,UserPlanet::class);
+    }
 }

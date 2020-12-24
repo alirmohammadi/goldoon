@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use Illuminate\Support\Facades\Log;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Resource as NovaResource;
 
@@ -56,4 +57,15 @@ abstract class Resource extends NovaResource
     {
         return parent::relatableQuery($request, $query);
     }
+
+	public function convertForSelect( $data )
+	{
+		$converted=[];
+		foreach($data as $d)
+		{
+			$converted[$d->id]=$d->name;
+		}
+		Log::info(json_encode($converted));
+		return $converted;
+	}
 }
