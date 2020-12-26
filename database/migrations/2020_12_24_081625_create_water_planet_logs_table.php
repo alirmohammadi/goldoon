@@ -15,8 +15,8 @@ class CreateWaterPlanetLogsTable extends Migration
     {
         Schema::create('water_planet_logs', function (Blueprint $table) {
             $table->id();
-	        $table->foreignId("user_id")->constrained();
-	        $table->foreignId("plant_id")->constrained();
+	        $table->foreignId("user_id");
+	        $table->foreignId("plant_id");
             $table->timestamps();
         });
     }
