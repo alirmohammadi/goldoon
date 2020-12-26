@@ -27,7 +27,7 @@ class CreatePlanetsTable extends Migration
             $table->foreignId("life_id");
             $table->foreignId("soil_id");
             $table->string("size");
-            $table->foreignId("sub_category_id")->constrained();
+            $table->foreignId("sub_category_id");
             $table->integer("soil_period");
             $table->integer("water_period");
             $table->string("description");
