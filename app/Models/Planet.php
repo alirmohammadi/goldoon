@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\planetCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
@@ -12,6 +13,19 @@ class Planet extends Model implements HasMedia
 {
     use HasFactory;
 	use InteractsWithMedia;
+
+
+	protected $casts =[
+		"water_id"=>PlanetCast::class,
+		"care_situation_id"=>PlanetCast::class,
+		"light_id"=>PlanetCast::class,
+		"temperature_id"=>PlanetCast::class,
+		"humidity_id"=>PlanetCast::class,
+		"cleaning_id"=>PlanetCast::class,
+		"poison_id"=>PlanetCast::class,
+		"life_id"=>PlanetCast::class,
+		"soil_id"=>PlanetCast::class,
+	];
 
 	public function SubCategory(  )
 	{

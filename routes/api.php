@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::post( 'register', [ AuthController::class, "Register" ] );
 Route::post( 'login', [ AuthController::class, "Login" ] );
+Route::post( 'resetpassword', [ AuthController::class, "ResetPassword" ] );
+Route::post( 'forgetpassword', [ AuthController::class, "ForgetPassword" ] );
 Route::get( "categories", [ PlanetController::class, "Categories" ] );
 Route::get( "subcategories", [ PlanetController::class, "SubCategories" ] );
 Route::get( "planets", [ PlanetController::class, "planets" ] );
 Route::get( "search", [ PlanetController::class, "search" ] );
+Route::middleware(["token"])->group( function() {
+	Route::post("adduserplanet",[ PlanetController::class, "AddUserPlanet" ]);
+	Route::get("userplanet",[ PlanetController::class, "UserPlanets" ]);
+} );

@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserPlanet extends Model
 {
-    use HasFactory;
+
+	use HasFactory;
+
+	protected $fillable = [
+		"planet_id",
+		"user_id",
+		"age",
+		"area",
+	];
 }

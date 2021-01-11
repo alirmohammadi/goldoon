@@ -62,6 +62,11 @@ class User extends Authenticatable
 
 	public function Planet(  )
 	{
-		return $this->hasManyThrough(Planet::class,UserPlanet::class);
+		return $this->belongsToMany(Planet::class,UserPlanet::class)->withPivot("area" ,"age");
     }
+
+	public function UserPlanets(  )
+	{
+		return $this->hasMany(UserPlanet::class);
+	}
 }
