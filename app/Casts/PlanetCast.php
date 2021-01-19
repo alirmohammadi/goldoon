@@ -6,7 +6,7 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class planetCast implements CastsAttributes
+class PlanetCast implements CastsAttributes
 {
     /**
      * Cast the given value.
