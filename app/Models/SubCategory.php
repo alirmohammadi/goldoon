@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class SubCategory extends Model
 {
     use HasFactory;
+	protected $appends =["media"];
 
+	public function getMediaAttribute(  )
+	{
+		return [];
+	}
 	public function Planets(  )
 	{
 		return $this->hasMany(Planet::class);
