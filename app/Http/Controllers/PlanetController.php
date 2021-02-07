@@ -14,9 +14,9 @@ class PlanetController extends Controller
 
 	public function Categories()
 	{
-		return $this->Response( [
+		return $this->Response(
 			 Category::with( "media" )->get(),
-		] );
+		 );
 	}
 
 	public function SubCategories( Request $request )
@@ -25,9 +25,9 @@ class PlanetController extends Controller
 			"category_id" => [ "required", "exists:categories,id" ],
 		] );
 
-		return $this->Response( [
+		return $this->Response(
 			 SubCategory::where( "category_id", $request->input( "category_id" ) )->get(),
-		] );
+		 );
 	}
 
 	public function Planets( Request $request )
@@ -36,16 +36,16 @@ class PlanetController extends Controller
 			"subcategory_id" => [ "required", "exists:sub_categories,id" ],
 		] );
 
-		return $this->Response( [
+		return $this->Response(
 			 Planet::where( "sub_category_id", $request->input( "subcategory_id" ) )->with( "media" )->get(),
-		] );
+		 );
 	}
 
 	public function Search( Request $request )
 	{
-		return $this->Response( [
+		return $this->Response(
 			 Planet::where( "name", "like", "%" . $request->input( "name" ) . "%" )->orWhere( "latin_name", "like", "%" . $request->input( "name" ) . "%" )->with( "media" )->get(),
-		] );
+		 );
 	}
 
 	public function AddUserPlanet( Request $request )
